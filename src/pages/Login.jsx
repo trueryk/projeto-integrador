@@ -8,20 +8,23 @@ const [Senha,setSenha] = useState("");
     
     return(
         <>
-        <div className="Caixa_Login">
-        <img src=""/>
-        <h3>Bem-vindo ao ConectaServiços</h3>
-        <p>Digite seu email e senha para logar, ou crie uma conta</p>
-        <input placeholder="Digite seu Email" value={Email} onChange={(e)=>{setEmail(e.target.value)}}/>
-        <input placeholder="Digite sua senha" value={Senha} onChange={(e)=>{setSenha(e.target.value)}}/>
+        <h3 style={{ textAlign: 'center' }}>Login</h3>
+        <p style={{textAlign: 'center'}}>Faça login para acessar sua conta:</p>
 
-        <button className="Botao_Login">Logar</button>
-
-        <p>Não é cadastrado? clique aqui:</p>
-        <button className="Botao_Cadastro">Cadastrar-se</button>
-
+        <div className="container justify-content-center border rounded p-4 w-50">
+            <form style={{display: 'flex', flexDirection: 'column'}} className="form">
+                <div className="mb-3">
+                    <label className="form-label">Email:</label>
+                    <input className="form-control" type="email" value={Email} onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div className="mb-3">
+                    <label className="form-label">Senha:</label>
+                    <input className="form-control" type="password" value={Senha} onChange={(e) => setSenha(e.target.value)} />
+                </div>
+                <button className="btn btn-primary align-self-center" type="submit">Logar</button>
+            </form>
+            <p style={{textAlign: 'center'}}>Não possui uma conta? <a href="/cadastro">Cadastre-se</a></p>
         </div>
-
         </>
     )
 }
