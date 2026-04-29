@@ -1,0 +1,43 @@
+.Caixa_Login {
+
+    width: 300px;
+    height: 350px;
+    border-radius: 3%;
+    display: row;
+    background-color: whitesmoke;
+    border: solid grey 2px;
+    margin-top: 7%;
+    justify-self: center;
+
+}
+
+.Caixa_Login h3, .Caixa_Login p{
+
+    text-align: center;
+
+}
+
+.Caixa_Login input, .Caixa_Login button{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 30px;
+    border-radius: 5%;
+    margin: 1% auto;
+    justify-content: center;
+        border: solid grey 1px;
+
+}
+
+.Botao_Login {
+
+    background-color: royalblue;
+    color: white;
+
+}
+
+.Botao_Cadastro {
+
+    color: royalblue;
+
+}
