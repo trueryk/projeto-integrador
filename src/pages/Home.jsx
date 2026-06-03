@@ -29,8 +29,8 @@ export default function Home() {
                 </div>
                 <div className="searchbar border rounded">
                     <div className="px-5 py-4">
-                        <label for="nome" class="form-label">Nome</label>
-                        <input type="nome" class="form-control " placeholder="Nome do profissional" value={busca} onChange={(e) => { setBusca(e.target.value) }}></input>
+                        <label for="nome" className="form-label">Nome</label>
+                        <input type="nome" className="form-control " placeholder="Nome do profissional" value={busca} onChange={(e) => { setBusca(e.target.value) }}></input>
                     </div>
                 </div>
                 <div className="row justify-content-center py-5">
@@ -38,14 +38,14 @@ export default function Home() {
                     (
                         <div className="col-5">
                             {/* Transformar esse código em componente mais pra frente! */}
-                            <div class="card">
-                                <div class="card-body ps-3 py-4">
+                            <div className="card">
+                                <div className="card-body ps-3 py-4">
                                     <div className="row">
                                         <div className="col-8">
-                                            <div><p class="card-title fs-6">{servico.nome}</p></div>
+                                            <div><p className="card-title fs-6">{servico.nome}</p></div>
                                             <div className="avaliacao"> {servico.avaliacao} ⭐</div>
                                             <div className="text-secondary mb-3">{servico.profissao}</div>
-                                            <p class="card-text">{servico.cidade}, {servico.estado}</p>
+                                            <p className="card-text">{servico.cidade}, {servico.estado}</p>
                                             <button className="btn btn-primary me-3">Avaliações</button>
                                             <button className="btn btn-outline-primary">Avaliar</button>
                                         </div>

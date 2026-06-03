@@ -1,9 +1,24 @@
 export default function Menu(){
     return(
         <>
-            <ul className="py-3 border-bottom">
-                Navbar em construção!
-            </ul>
+            <nav class="navbar navbar-expand-lg bg-primary  navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Conecta Serviços</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <a class="nav-link active" href="/cadastro">Cadastrar-se</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" href="/login">Login</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            </nav>
         </>
     )
 }
