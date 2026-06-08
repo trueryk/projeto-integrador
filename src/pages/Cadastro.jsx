@@ -15,19 +15,19 @@ export default function Cadastro() {
     const [numero, setNumero] = useState("");
     const [rua, setRua] = useState("");
 
-    const response = await fetch(
-        'http://localhost:8080/enderecos',
-        {
-            method: 'POST',
+    // const response = await fetch(
+    //     'http://localhost:8080/enderecos',
+    //     {
+    //         method: 'POST',
 
-        headers: {
-          'Content-Type':
-            'application/json'
-        },
+    //     headers: {
+    //       'Content-Type':
+    //         'application/json'
+    //     },
 
-        body: JSON.stringify()
-        }
-    )
+    //     body: JSON.stringify()
+    //     }
+    // )
 
     const validar_cadastro = () => {
         if (cpf == "" || nome == "" || dataNascimento == "" || telefone == "" || email == "" || senha == "" || cep == "") {
@@ -66,39 +66,39 @@ export default function Cadastro() {
             <div className="my-3 container justify-content-center border rounded p-4 w-75">
                 <h3 className="text-center">Cadastro</h3>
                 <p className="text-center">Preencha o formulário abaixo para criar sua conta:</p>
-                <form class="needs-validation" novalidate>
+                <form className="needs-validation" novalidate>
                     <div className="row">
                         <div className="col">
                             <div className="mb-3">
                                 <div className="form-group mb-2">
-                                    <label for="cep" className="form-label">CEP:</label>
+                                    <label htmlFor="cep" className="form-label">CEP:</label>
                                     <input id="cep" className="form-control mb-2" type="text" value={cep} onChange={(e) => setCep(e.target.value)} />
 
-                                    <label for="rua" className="form-label">Rua: </label>
+                                    <label htmlFor="rua" className="form-label">Rua: </label>
                                     <input id="rua" className="form-control mb-2" value={rua} disabled />
 
-                                    <label for="bairro" className="form-label">Bairro: </label>
+                                    <label htmlFor="bairro" className="form-label">Bairro: </label>
                                     <input id="bairro" className="form-control mb-2" value={bairro} disabled />
 
-                                    <label for="cidade" className="form-label">Cidade: </label>
+                                    <label htmlFor="cidade" className="form-label">Cidade: </label>
                                     <input id="cidade" className="form-control mb-2" value={cidade} disabled />
 
-                                    <label for="estado" className="form-label">Estado: </label>
+                                    <label htmlFor="estado" className="form-label">Estado: </label>
                                     <input id="estado" className="form-control mb-2" value={estado} disabled />
                                 </div>
                                 <div className="form-group mb-2">
-                                    <label for="numero" className="form-label">Número:</label>
+                                    <label htmlFor="numero" className="form-label">Número:</label>
                                     <input id="numero" className="form-control" type="text" value={numero} onChange={(e) => setNumero(e.target.value)} />
                                 </div>
                             </div>
                         </div>
                         <div className="col">
                             <div className="form-group mb-2">
-                                <label for="nome" className="form-label">Nome:</label>
+                                <label htmlFor="nome" className="form-label">Nome:</label>
                                 <input id="nome" className="form-control" type="text" value={nome} onChange={(e) => setNome(e.target.value)} />
                             </div>
                             <div className="form-group mb-2">
-                                <label for="cpf" className="form-label">CPF:</label>
+                                <label htmlFor="cpf" className="form-label">CPF:</label>
                                 <input id="cpf" className="form-control" type="text" value={cpf} onChange={(e) => setCpf(e.target.value)} />
                             </div>
 
