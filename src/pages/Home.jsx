@@ -2,19 +2,8 @@ import { useEffect, useState } from "react"
 
 export default function Home() {
     const [busca, setBusca] = useState('')
-    const [servicos, setServicos] = useState([{
-        'nome': 'Ana Luiza',
-        'profissao': 'Diarista',
-        'estado': 'SP',
-        'cidade': 'Indaiatuba',
-        'avaliacao': '5'
-    }, {
-        'nome': 'Murilo Machado',
-        'profissao': 'Diarista',
-        'estado': 'SP',
-        'cidade': 'Indaiatuba',
-        'avaliacao': '4.5'
-    }])
+    const [servicos, setServicos] = useState([])
+
 
     const servicosFiltrados = servicos.filter((servico) =>
         servico.nome.toLowerCase().includes(busca.toLowerCase())
@@ -34,28 +23,9 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="row justify-content-center py-5">
-                    {servicosFiltrados.map((servico) =>
+                    { servicosFiltrados.map((servico) =>
                     (
-                        <div className="col-5">
-                            {/* Transformar esse código em componente mais pra frente! */}
-                            <div className="card">
-                                <div className="card-body ps-3 py-4">
-                                    <div className="row">
-                                        <div className="col-8">
-                                            <div><p className="card-title fs-6">{servico.nome}</p></div>
-                                            <div className="avaliacao"> {servico.avaliacao} ⭐</div>
-                                            <div className="text-secondary mb-3">{servico.profissao}</div>
-                                            <p className="card-text">{servico.cidade}, {servico.estado}</p>
-                                            <button className="btn btn-primary me-3">Avaliações</button>
-                                            <button className="btn btn-outline-primary">Avaliar</button>
-                                        </div>
-                                        <div className="col">
-                                            <div className="badge text-bg-success">Verificado</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CardServico nome={servico.nome} />
                     )
                     )}
                 </div>

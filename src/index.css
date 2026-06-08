@@ -2,3 +2,7 @@
 :root {
   --mono: ui-monospace, Consolas, monospace;
 }
+
+nav{
+  background-color: black;
+}

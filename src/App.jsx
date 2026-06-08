@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Menu from './components/Menu'
 import LoginSalvo from './components/LoginSalvo'
@@ -9,12 +9,11 @@ import Cadastro from './pages/Cadastro'
 function App() {
 
   return (
-    <>
-      <Menu />
+    <> 
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<> <Menu /> <Home /> </>} />
         <Route path='/cadastro' element={<Cadastro />} />
-        <Route path='/login' element={<Login/>} />
+        <Route path='/login' element={<Login />} />
       </Routes>
       <LoginSalvo />
     </>
