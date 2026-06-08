@@ -1,13 +1,28 @@
 import { useEffect, useState } from "react"
+import CardServico from "../components/CardServico"
 
 export default function Home() {
     const [busca, setBusca] = useState('')
     const [servicos, setServicos] = useState([])
 
+    useEffect(() => {
+        loadServices()
+    }, [])
 
-    const servicosFiltrados = servicos.filter((servico) =>
-        servico.nome.toLowerCase().includes(busca.toLowerCase())
-    )
+    const loadServices = async () => {
+
+        const response = await fetch(
+            'http://localhost:8080/servicos/serviceComplete'
+        )
+
+        const data = await response.json()
+        setServicos(data)
+
+    }
+
+    // const servicosFiltrados = servicos.filter((servico) =>
+    //     servico.pessoas.servicos.nomeServico.toLowerCase().includes(busca.toLowerCase())
+    // )
 
     return (
         <>
@@ -23,11 +38,15 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="row justify-content-center py-5">
-                    { servicosFiltrados.map((servico) =>
-                    (
-                        <CardServico nome={servico.nome} />
-                    )
-                    )}
+                    {servicos.map((servico) => (
+                        <CardServico 
+                        nome={servico.nomePrestador} 
+                        avaliacao={servico.avaliacaoServico}
+                        profissao ={servico.especialidade}
+                        estado = {servico.estado}
+                        cidade = {servico.cidade}
+                        />
+                    ))}
                 </div>
             </div>
         </>
