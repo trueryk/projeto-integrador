@@ -185,9 +185,13 @@ export default function Servico() {
                                         <div className="card-body ps-3 py-4">
                                             <div className="row">
                                                 <div className="col-8 ps-5">
-                                                    <div><p className="card-title fs-5">{servico.nomePrestador}</p></div>
+                                                    <div><span className="card-title fs-5 d-flex">
+                                                        <div className="rounded-circle bg-blue p-2 me-2 circle text-center">{servico.nomePrestador.charAt(0).toUpperCase()}</div>
+                                                        <div className="name p-2">{servico.nomePrestador}</div>
+                                                    </span></div>
+                                                    <div className="text-secondary"> Serviço: {servico.nomeServico}</div>
+                                                    <div className="text-secondary"> Categoria: {servico.categoria}</div>
                                                     <div className="avaliacao"> {servico.avaliacaoServico} ⭐</div>
-                                                    <div className="text-secondary mb-3">{servico.categoria}</div>
                                                     <p className="card-text">{servico.cidade}, {servico.estado}</p>
                                                     <p className="card-text preco">R$ {servico.preco}</p>
                                                     <button id={servico.idServico} className="btn btn-blue me-3" onClick={(e) => { initEdit(e.target.id) }}>Editar</button>
