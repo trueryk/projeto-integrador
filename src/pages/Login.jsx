@@ -7,10 +7,10 @@ export default function Login() {
     const [senha, setSenha] = useState("");
 
     useEffect(() => {
-        if(sessionStorage.getItem('username') != null){
+        if (sessionStorage.getItem('username') != null) {
             redirectTo()
         }
-    },[])
+    }, [])
 
     const login = async () => {
         const response = await fetch(
@@ -23,6 +23,7 @@ export default function Login() {
             if (data[0].password == senha) {
                 sessionStorage.setItem('username', data[0].username)
                 sessionStorage.setItem('cpf', data[0].cpf)
+                sessionStorage.setItem('especialidade', data[0].especialidade)
                 setEmail("")
                 setSenha("")
                 redirectTo()
@@ -41,7 +42,7 @@ export default function Login() {
         <>
             <div className="container_all">
                 <div className="container justify-content-center border rounded p-5 w-50">
-                    <h3 className="text-center">Login</h3>
+                    <h3 className="text-center">Entre na sua conta</h3>
                     <p className="text-center mb-5">Faça login para acessar sua conta:</p>
                     <form style={{ display: 'flex', flexDirection: 'column' }} className="form">
                         <div className="mb-3">
@@ -53,10 +54,17 @@ export default function Login() {
                             <input className="form-control" type="password" value={senha} onChange={(e) => setSenha(e.target.value)} />
                         </div>
                     </form>
-                    <button className="btn btn-primary align-self-center my-3" onClick={login}>Logar</button>
-                    <p className="text-center">Não possui uma conta? <a href="/cadastro">Cadastre-se</a></p>
+                    <div className="d-flex">
+                        <button className="btn btn-blue justify-content-center my-3" onClick={login}>Entrar</button>
+                    </div>
+                    <p className="text-center">Não possui uma conta? <a className="link-blue" href="/cadastro">Cadastre-se</a></p>
                 </div>
             </div>
+            <a href="/">
+                <div className="fixed-top ms-5 mt-5 py-2 px-3 rounded back">
+                    <i class="bi bi-house"></i>
+                </div>
+            </a>
         </>
     )
 }

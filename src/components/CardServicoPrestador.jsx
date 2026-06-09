@@ -1,8 +1,7 @@
-export default function CardServico(props) {
+export default function CardServicoPrestador(props) {
     return (
         <>
-            <div className="col-6">
-                <div className="card mb-3">
+                <div className="card mb-3 mt-5">
                     <div className="card-body ps-3 py-4">
                         <div className="row">
                             <div className="col-8 ps-5">
@@ -11,8 +10,8 @@ export default function CardServico(props) {
                                 <div className="text-secondary mb-3">{props.profissao}</div>
                                 <p className="card-text">{props.cidade}, {props.estado}</p>
                                 <p className="card-text preco">R$ {props.preco}</p>
-                                <button className="btn btn-blue me-3">Contratar</button>
-                                <button className="btn btn-outline-blue">Avaliar</button>
+                                <button className="btn btn-blue me-3" >{props.id_servico}Editar</button>
+                                <button className="btn btn-outline-blue">Excluir</button>
                             </div>
                             <div className="col">
                                 <div className="badge text-bg-success">Verificado</div>
@@ -20,7 +19,6 @@ export default function CardServico(props) {
                         </div>
                     </div>
                 </div>
-            </div>
         </>
     )
 }

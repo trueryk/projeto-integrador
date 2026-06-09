@@ -182,6 +182,11 @@ export default function Cadastro() {
                 <button className="btn btn-primary align-self-center" onClick={() => { validar_cadastro() }}>Cadastrar</button>
                 <p className="text-center">Já possui uma conta? <a href="/login">Faça login</a></p>
             </div>
+            <a href="/">
+                <div className="fixed-top ms-5 mt-5 py-2 px-3 rounded back">
+                    <i class="bi bi-house"></i>
+                </div>
+            </a>
         </>
     )
 }

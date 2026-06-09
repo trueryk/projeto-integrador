@@ -30,7 +30,8 @@ export default function Home() {
         if (sessionStorage.getItem('username') != null) {
             setCurrentUser({
                 username: sessionStorage.getItem('username'),
-                cpf: sessionStorage.getItem('cpf')
+                cpf: sessionStorage.getItem('cpf'),
+                especialidade: sessionStorage.getItem('especialidade')
             })
         }
     }
@@ -38,7 +39,7 @@ export default function Home() {
     return (
         <>
             <div className="container-fluid justify-content-center w-75">
-                <div className="head">
+                <div className="head text-blue">
                     <h3 className="mt-5">Conectamos você aos melhores profissionais</h3>
                     <p>Platafroma especializada em conectar clientes e presadores de serviços qualificados e verificado. Sistema de avaliações transparente para decisões mais seguras.</p>
                 </div>
@@ -60,6 +61,7 @@ export default function Home() {
                                     profissao={servico.especialidade}
                                     estado={servico.estado}
                                     cidade={servico.cidade}
+                                    preco={servico.valorServico}
                                 />
                             ))}
                         </>

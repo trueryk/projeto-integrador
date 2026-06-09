@@ -6,6 +6,7 @@ import './App.css'
 import Login from './pages/Login'
 import Cadastro from './pages/Cadastro'
 import Perfil from './pages/Perfil'
+import Servico from './pages/Servico'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/cadastro' element={<Cadastro />} />
         <Route path='/login' element={<Login />} />
         <Route path='/perfil' element={<> <Menu /><Perfil /></>} />
+        <Route path='/servicos' element={<> <Menu /><Servico /></>} />
       </Routes>
       <LoginSalvo />
     </>
