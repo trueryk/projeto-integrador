@@ -65,18 +65,28 @@
   background-color: #487AA1;
 }
 
-.card-title{
+.card-title {
   color: #245174;
 }
 
-.card-text{
+.card-text {
   color: #487AA1;
 }
 
-.avaliacao{
+.avaliacao {
   color: rgb(97, 97, 4);
 }
 
-.text-blue{
+.text-blue {
   color: #245174;
+}
+
+.bg-blue {
+  background-color: #245174;
+  color: white;
+}
+
+.circle {
+  width: 3rem;
+  height: 3rem;
 }

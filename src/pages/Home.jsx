@@ -46,7 +46,8 @@ export default function Home() {
 
                 <div className="row justify-content-center py-2">
                     {servicosFiltrados == "" ?
-                        <><span className="alert alert-secondary text-center">Sem serviços registrados ainda!</span></> :
+                        <><span className="alert alert-secondary text-center">Sem serviços registrados ainda!</span></>
+                        :
                         <>
                             <div className="searchbar border rounded mb-5">
                                 <div className="px-5 py-4">
@@ -55,10 +56,11 @@ export default function Home() {
                                 </div>
                             </div>
                             {servicosFiltrados.map((servico) => (
-                                <CardServico 
+                                <CardServico
                                     nome={servico.nomePrestador}
+                                    nomeServico={servico.nomeServico}
                                     avaliacao={servico.avaliacaoServico}
-                                    profissao={servico.especialidade}
+                                    categoria={servico.categoria}
                                     estado={servico.estado}
                                     cidade={servico.cidade}
                                     preco={servico.valorServico}

@@ -184,7 +184,7 @@ export default function Cadastro() {
             </div>
             <a href="/">
                 <div className="fixed-top ms-5 mt-5 py-2 px-3 rounded back">
-                    <i class="bi bi-house"></i>
+                    <i className="bi bi-house"></i>
                 </div>
             </a>
         </>

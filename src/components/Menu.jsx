@@ -38,10 +38,10 @@ export default function Menu() {
                             {currentUser == "" ?
                                 <>
                                     <li className="nav-item">
-                                        <a className="nav-link active link-underline" href="/cadastro">Cadastrar-se<i class="bi bi-person-fill-add ms-2"></i> </a>
+                                        <a className="nav-link active link-underline" href="/cadastro">Cadastrar-se<i className="bi bi-person-fill-add ms-2"></i> </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link active link-underline" href="/login">Login<i class="bi bi-box-arrow-in-right ms-2"></i></a>
+                                        <a className="nav-link active link-underline" href="/login">Login<i className="bi bi-box-arrow-in-right ms-2"></i></a>
                                     </li>
                                 </>
                                 :
@@ -50,19 +50,19 @@ export default function Menu() {
                                         <a className="nav-link active">Bem vindo {currentUser.username}!</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link active link-underline" href="/perfil">Perfil<i class="bi bi-person-fill ms-2"></i></a>
+                                        <a className="nav-link active link-underline" href="/perfil">Perfil<i className="bi bi-person-fill ms-2"></i></a>
                                     </li>
                                     {
                                         currentUser.especialidade != "null" 
                                         ?
                                     <li className="nav-item">
-                                        <a className="nav-link active link-underline" href="/servicos">Ver serviços<i class="bi bi-list-nested ms-2"></i></a>
+                                        <a className="nav-link active link-underline" href="/servicos">Ver serviços<i className="bi bi-list-nested ms-2"></i></a>
                                     </li>
                                         :
                                         <></> 
                                     }
                                      <li className="nav-item">
-                                        <a className="nav-link active link-underline" href="/" onClick={logout}>Logout<i class="bi bi-box-arrow-in-left ms-2"></i></a>
+                                        <a className="nav-link active link-underline" href="/" onClick={logout}>Logout<i className="bi bi-box-arrow-in-left ms-2"></i></a>
                                     </li>
                                 </>
                             }
