@@ -6,3 +6,11 @@
 nav{
   background-color: black;
 }
+
+.link-underline{
+  text-decoration: underline;
+}
+
+.link-underline:hover{
+  color: rgb(172, 172, 172) !important;
+}

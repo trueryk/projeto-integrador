@@ -16,73 +16,80 @@ export default function Cadastro() {
     const [rua, setRua] = useState("");
 
     const finalizarCadastro = async () => {
-    try {
-        const dadosEndereco = {
-            cep: cep,
-            rua: rua,
-            numero: numero,
-            bairro: bairro,
-            cidade: cidade,
-            estado: estado
-        };
+        try {
+            const dadosEndereco = {
+                cep: cep,
+                rua: rua,
+                numero: numero,
+                bairro: bairro,
+                cidade: cidade,
+                estado: estado
+            };
 
-        const responseEnd = await fetch('http://localhost:8080/enderecos', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dadosEndereco)
-        });
+            const responseEnd = await fetch('http://localhost:8080/enderecos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dadosEndereco)
+            });
 
-        if (!responseEnd.ok) {
-            throw new Error("Erro ao cadastrar o endereço.");
-        }
-
-        const enderecoSalvo = await responseEnd.json();
-        
-        const idDoEnderecoCriado = enderecoSalvo.id_Endereco; 
-
-        const dadosUsuario = {
-            cpf: cpf,
-            dataCadastro: new Date().toISOString().split('T')[0],
-            dataNascimento: dataNascimento,
-            email: email,
-            nome: nome,
-            password: senha,
-            status: "Usuario",
-            telefone: telefone,
-            username: nome,
-            endereco: {
-                id_Endereco: idDoEnderecoCriado
+            if (!responseEnd.ok) {
+                throw new Error("Erro ao cadastrar o endereço.");
             }
-        };
 
-        const responseUsu = await fetch('http://localhost:8080/usuarios', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dadosUsuario)
-        });
+            const enderecoSalvo = await responseEnd.json();
 
-        if (responseUsu.ok) {
-            alert("Cadastro de endereço e usuário realizado com sucesso!");
-        } else {
-            console.error("Erro ao cadastrar usuário");
+            const idDoEnderecoCriado = enderecoSalvo.id_Endereco;
+
+            const dadosUsuario = {
+                cpf: cpf,
+                dataCadastro: new Date().toISOString().split('T')[0],
+                dataNascimento: dataNascimento,
+                email: email,
+                nome: nome,
+                password: senha,
+                status: "Usuario",
+                telefone: telefone,
+                username: nome,
+                endereco: {
+                    id_Endereco: idDoEnderecoCriado
+                }
+            };
+
+            const responseUsu = await fetch('http://localhost:8080/usuarios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dadosUsuario)
+            });
+
+            if (responseUsu.ok) {
+                alert("Cadastro de endereço e usuário realizado com sucesso!");
+                setCep("")
+                setNumero("")
+                setNome("")
+                setCpf("")
+                setDataNascimento("")
+                setTelefone("")
+                setEmail("")
+                setSenha("")
+                window.location.href = '/login'
+            } else {
+                console.error("Erro ao cadastrar usuário");
+            }
+
+        } catch (error) {
+            console.error("Ocorreu um erro no fluxo de cadastro:", error);
         }
-
-    } catch (error) {
-        console.error("Ocorreu um erro no fluxo de cadastro:", error);
-    }
-};
+    };
 
     const validar_cadastro = () => {
         if (cpf == "" || nome == "" || dataNascimento == "" || telefone == "" || email == "" || senha == "" || cep == "") {
             alert("Faltam informações no formulário");
         } else {
-            const endereco = {
-                
-            }
+            finalizarCadastro()
         }
     }
 
@@ -110,7 +117,7 @@ export default function Cadastro() {
 
     return (
         <>
-            <div className="my-3 container justify-content-center border rounded p-4 w-75">
+            <div className="container justify-content-center border rounded px-4 py-2 my-2 w-75">
                 <h3 className="text-center">Cadastro</h3>
                 <p className="text-center">Preencha o formulário abaixo para criar sua conta:</p>
                 <form className="needs-validation" noValidate>
@@ -172,9 +179,7 @@ export default function Cadastro() {
 
                     </div>
                 </form>
-
-                <button className="btn btn-primary align-self-center" onClick={() => {validar_cadastro()
-                    finalizarCadastro()}}>Cadastrar</button>
+                <button className="btn btn-primary align-self-center" onClick={() => { validar_cadastro() }}>Cadastrar</button>
                 <p className="text-center">Já possui uma conta? <a href="/login">Faça login</a></p>
             </div>
         </>
