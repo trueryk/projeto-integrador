@@ -3,7 +3,7 @@ export default function CardServico(props) {
         <>
             <div className="col-5">
                 {/* Transformar esse código em componente mais pra frente! */}
-                <div className="card">
+                <div className="card mb-3">
                     <div className="card-body ps-3 py-4">
                         <div className="row">
                             <div className="col-8">

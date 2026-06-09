@@ -20,9 +20,9 @@ export default function Home() {
 
     }
 
-    // const servicosFiltrados = servicos.filter((servico) =>
-    //     servico.pessoas.servicos.nomeServico.toLowerCase().includes(busca.toLowerCase())
-    // )
+    const servicosFiltrados = servicos.filter((servico) =>
+        servico.nomePrestador.toLowerCase().includes(busca.toLowerCase())
+    )
 
     return (
         <>
@@ -38,7 +38,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="row justify-content-center py-5">
-                    {servicos.map((servico) => (
+                    {servicosFiltrados.map((servico) => (
                         <CardServico 
                         nome={servico.nomePrestador} 
                         avaliacao={servico.avaliacaoServico}
